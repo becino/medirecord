@@ -9,18 +9,16 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 #This code is to work with Heroku---------------------
 import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+import os
+#DATABASES['default'] =  dj_database_url.config()
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# Allow all host headers
-ALLOWED_HOSTS = ['*']
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 # Static asset configuration
-import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 STATIC_ROOT = 'staticfiles'
@@ -36,7 +34,8 @@ STATICFILES_DIRS = (
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '0^%jzfs(w!2(d^+xi!!sqg$aw#ik@y)fmqcl-fh2-bnu&o9ya7'
+DEFAULT_SECRET_KEY = '0^%jzfs(w!2(d^+xi!!sqg$aw#ik@y)fmqcl-fh2-bnu&o9ya7'
+SECRET_KEY = os.environ.get('SECRET_KEY', DEFAULT_SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -72,12 +71,12 @@ WSGI_APPLICATION = 'medirecord.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#    }
-#}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -91,6 +90,9 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
 
 
 # Static files (CSS, JavaScript, Images)
