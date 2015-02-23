@@ -10,7 +10,6 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 #This code is to work with Heroku---------------------
 import dj_database_url
 import os
-#DATABASES['default'] =  dj_database_url.config()
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -94,6 +93,7 @@ USE_TZ = True
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
 
+DATABASES['default'] =  dj_database_url.config()
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
