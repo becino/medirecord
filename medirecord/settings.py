@@ -93,7 +93,7 @@ USE_TZ = True
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
 
-DATABASES['default'] =  dj_database_url.config()
+DATABASES['default'] = dj_database_url.config()
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
