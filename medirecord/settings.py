@@ -76,19 +76,22 @@ DATABASES = {
     #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     #}
     
+    #'default': {
+    #    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #    'NAME': 'd689bqgqcrpuu9',
+    #    'USER': 'dfraoofrzztoil',
+    #    'PASSWORD': 'uYgKe7OcHgYBIoW5b0EES5nqlC',
+    #    'HOST': 'ec2-107-22-249-214.compute-1.amazonaws.com',
+    #}
+
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'd689bqgqcrpuu9',
         'USER': 'dfraoofrzztoil',
         'PASSWORD': 'uYgKe7OcHgYBIoW5b0EES5nqlC',
-        'HOST': 'ec2-107-22-249-214.compute-1.amazonaws.com',
-    }
+        'HOST': 'localhost',
+    }    
 
-    #'default': {
-    #    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #    'NAME': 'medirecord'
-    #    ),
-    #}    
 }
 
 # Internationalization
@@ -107,7 +110,7 @@ USE_TZ = True
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
 
-DATABASES['default'] = dj_database_url.config()
+#DATABASES['default'] = dj_database_url.config()
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
